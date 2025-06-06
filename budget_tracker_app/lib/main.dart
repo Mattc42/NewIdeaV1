@@ -1,11 +1,7 @@
-diff --git a//dev/null b/budget_tracker_app/lib/main.dart
-index 0000000000000000000000000000000000000000..69ae174c2925b67a3a230f76b42f58737a62ba4e 100644
---- a//dev/null
-+++ b/budget_tracker_app/lib/main.dart
-@@ -0,0 +1,366 @@
 +import 'package:flutter/material.dart';
 +import 'models.dart';
 +import 'storage_service.dart';
++import 'financial_tips.dart';
 +
 +void main() {
 +  runApp(const BudgetTrackerApp());
@@ -37,6 +33,7 @@ index 0000000000000000000000000000000000000000..69ae174c2925b67a3a230f76b42f5873
 +    const OverviewPage(),
 +    const TransactionsPage(),
 +    const SavingsGoalsPage(),
++    const TipsPage(),
 +    const SettingsPage(),
 +  ];
 +
@@ -52,6 +49,7 @@ index 0000000000000000000000000000000000000000..69ae174c2925b67a3a230f76b42f5873
 +          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Overview'),
 +          BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Transactions'),
 +          BottomNavigationBarItem(icon: Icon(Icons.savings), label: 'Savings'),
++          BottomNavigationBarItem(icon: Icon(Icons.lightbulb), label: 'Tips'),
 +          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
 +        ],
 +      ),
@@ -369,3 +367,20 @@ index 0000000000000000000000000000000000000000..69ae174c2925b67a3a230f76b42f5873
 +    );
 +  }
 +}
++
++class TipsPage extends StatelessWidget {
++  const TipsPage({super.key});
++
++  @override
++  Widget build(BuildContext context) {
++    return Scaffold(
++      body: ListView(
++        padding: const EdgeInsets.all(16),
++        children: financialTips
++            .map((tip) => ListTile(leading: const Icon(Icons.check), title: Text(tip)))
++            .toList(),
++      ),
++    );
++  }
++}
+ 
