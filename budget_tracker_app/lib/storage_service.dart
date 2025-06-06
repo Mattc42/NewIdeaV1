@@ -58,6 +58,3 @@
 +    return prefs.getStringList(_categoriesKey) ?? [];
 +  }
 +}
- 
-EOF
-)
